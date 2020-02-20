@@ -29,6 +29,9 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Lint}{ \int_{-L}^{L} }
 \newcommand{\xabs}{ \abs{x(t)}^2 }
+\newcommand{\rect}{ \text{rect} }
+\newcommand{\impulse}{ \delta(t) }
+\newcommand{\Iint}{ \int_{-\infty}^{\infty} }
 
 \newcommand{\underlineSection}[1][unnamed]{
 \subsection*{#1}
@@ -92,7 +95,7 @@ By Benjamin Kong \& Lora Ma
 \setlength{\multicolsep}{0.5pt}
 \setlength{\columnsep}{0.5pt}
 
-\underlineSection[Chapter 1]
+\underlineSection[1. Time-domain signals]
 A continuous-time signal takes the form 
 \[ x(t + nT) = x(t) \quad n \in \Z. \]
 
@@ -102,14 +105,17 @@ for some $a, b \in \Z$.
 
 Let $x(t)$ be some signal.
 \begin{itemize}[leftmargin=0.5cm]
-\item The energy for $t \in (-L, L)$ is given by 
-\[ E_{2L} = \Lint \xabs \di t, \]
+\item The \textit{energy} for $t \in (-L, L)$ is given by 
+\[ E_{2L} = \Lint \xabs \di t. \]
 
-\item The total energy is given by
-\[ E = \limi \Lint \xabs \di t, \]
+\item The \textit{total energy} is given by
+\[ E = \limi \Lint \xabs \di t. \]
 
-\item The average power is given by
+\item The \textit{average power} is given by
 \[ P = \limi \dfrac{1}{2L} \Lint \xabs \di t. \]
+
+\item If $x(t)$ is periodic,
+\[ P = \dfrac{1}{T} \int_0^T \xabs \di t. \]
 \end{itemize}
 
 $E$ finite $\rightarrow$ \textbf{Energy signal} $\rightarrow P = 0$.
@@ -118,8 +124,48 @@ $E$ infinite and $P$ finite $\rightarrow$ \textbf{Power signal}.
 
 Periodic signal $\rightarrow$ \textbf{Power signal}.
 
+Let $x(t)$ be some signal.
+\begin{itemize}[leftmargin=0.5cm]
+\item A \textit{time shift} is represented by
+\[ x(t-t_0). \]
 
+\item A \textit{reflection} is represented by
+\[ x(-t). \]
 
+\item A signal is \textit{even} if
+\[ x(-t) = x(t) \]
+
+\item and \textit{odd} if
+\[ x(-t) = -x(t). \]
+\end{itemize}
+
+The \textit{unit step signal} is defined as
+\[ u(t) = \begin{cases} 
+      		1 & t > 0, \\
+      		0 & t < 0. 
+   		\end{cases}
+\]
+Note that $u(0) = \frac{1}{2}$.
+
+A \textit{rectangular pulse} is represented as
+\[ \rect\tpfrac{t}{T} = u\bracks{t + \tfrac{T}{2}} - u\bracks{t - \tfrac{T}{2}}. \]
+
+A \textit{ramp signal} is represented as
+\[ r(t) = tu(t) = \begin{cases} 
+		      		t & t \geq 0, \\
+		      		0 & t < 0. 
+		   		\end{cases}
+\]
+
+The \textit{unit impulse} $\impulse$ (Dirac delta function) is defined as
+\[ \int_{t_1}^{t_2} x(t) \impulse \di t = x(0) \quad t_1 < 0 < t_2. \]
+It has the following properties:
+\begin{itemize}[leftmargin=0.5cm]
+\item $\impulse = 0$ for $t \neq 0$,
+\item $\displaystyle \Iint \impulse \di t = 1$,
+\item $\delta(-t) = \impulse$,
+\item $\delta(0) = \infty$.
+\end{itemize}
 
 \end{multicols*}
 
