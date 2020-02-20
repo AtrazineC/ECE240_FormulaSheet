@@ -31,7 +31,9 @@
 \newcommand{\xabs}{ \abs{x(t)}^2 }
 \newcommand{\rect}{ \text{rect} }
 \newcommand{\impulse}{ \delta(t) }
+\newcommand{\dimpulse}{ \delta'(t) }
 \newcommand{\Iint}{ \int_{-\infty}^{\infty} }
+\newcommand{\tint}{ \int_{t_1}^{t_2} }
 
 \newcommand{\underlineSection}[1][unnamed]{
 \subsection*{#1}
@@ -105,8 +107,8 @@ for some $a, b \in \Z$.
 
 Let $x(t)$ be some signal.
 \begin{itemize}[leftmargin=0.5cm]
-\item The \textit{energy} for $t \in (-L, L)$ is given by 
-\[ E_{2L} = \Lint \xabs \di t. \]
+%\item The \textit{energy} for $t \in (-L, L)$ is given by 
+%\[ E_{2L} = \Lint \xabs \di t. \]
 
 \item The \textit{total energy} is given by
 \[ E = \limi \Lint \xabs \di t. \]
@@ -132,11 +134,11 @@ Let $x(t)$ be some signal.
 \item A \textit{reflection} is represented by
 \[ x(-t). \]
 
-\item A signal is \textit{even} if
-\[ x(-t) = x(t) \]
+%\item A signal is \textit{even} if
+%\[ x(-t) = x(t) \]
 
-\item and \textit{odd} if
-\[ x(-t) = -x(t). \]
+%\item and \textit{odd} if
+%\[ x(-t) = -x(t). \]
 \end{itemize}
 
 The \textit{unit step signal} is defined as
@@ -145,7 +147,7 @@ The \textit{unit step signal} is defined as
       		0 & t < 0. 
    		\end{cases}
 \]
-Note that $u(0) = \frac{1}{2}$.
+%Note that $u(0) = \frac{1}{2}$.
 
 A \textit{rectangular pulse} is represented as
 \[ \rect\tpfrac{t}{T} = u\bracks{t + \tfrac{T}{2}} - u\bracks{t - \tfrac{T}{2}}. \]
@@ -158,14 +160,49 @@ A \textit{ramp signal} is represented as
 \]
 
 The \textit{unit impulse} $\impulse$ (Dirac delta function) is defined as
-\[ \int_{t_1}^{t_2} x(t) \impulse \di t = x(0) \quad t_1 < 0 < t_2. \]
+\[ \tint x(t) \impulse \di t = x(0) \quad t_1 < 0 < t_2. \]
 It has the following properties:
 \begin{itemize}[leftmargin=0.5cm]
 \item $\impulse = 0$ for $t \neq 0$,
 \item $\displaystyle \Iint \impulse \di t = 1$,
-\item $\delta(-t) = \impulse$,
+\item $\delta(-t) = \impulse$, and
 \item $\delta(0) = \infty$.
 \end{itemize}
+
+Some $p(t)$ can be used as a model of a delta function if
+\begin{itemize}[leftmargin=0.5cm]
+\item $p(t)$ is even,
+\item $\displaystyle \lim_{\epsilon \rightarrow 0^+} p(t) = +\infty$ for $t = 0$,
+\item $\displaystyle \lim_{\epsilon \rightarrow 0^+} p(t) = 0$ for $t \neq 0$, and
+\item $\displaystyle \Iint p(t) \di t = 1$ for all $\epsilon > 0$.
+\end{itemize}
+If these conditions are satisfied, then
+\[ \lim_{\epsilon \rightarrow 0^+} p(t) = \impulse. \]
+
+The \textit{sifting property} is represented as
+\[ \tint x(t)\delta(t-t_0) \di t = \begin{cases} 
+      								x(t_0) & t_1 < t_0 < t_2, \\
+      								0 & \text{otherwise}. 
+   									\end{cases}
+\]
+
+If $x(t)$ is continuous at $t = t_0$, the \textit{sampling property} states that
+\[ x(t)\delta(t-t_0) = x(t_0)\delta(t-t_0). \]
+
+The \textit{scaling property} states that
+\[ \delta(at + b) = \dfrac{1}{\abs{a}} \delta\bracks{t + \tfrac{b}{a}} \quad a \neq 0. \]
+
+The derivative of $\impulse$ is defined as
+\[ \tint x(t) \delta'(t-t_0) \di t = -x'(t_0) \quad t_1 < t_0 < t_2. \]
+It has the following properties:
+\begin{itemize}[leftmargin=0.5cm]
+\item $\displaystyle x(t)*\dimpulse = \Iint x(\tau)\delta'(t-\tau) \di \tau = x'(t)$,
+\item $x(t)\delta'(t-t_0) = x(t_0)\delta'(t-t_0) - x'(t_0)\delta(t-t_0)$,
+\item $\displaystyle \int_{-\infty}^t \delta'(\tau - t_0) \di \tau = \delta(t-t_0)$, and
+\item $\displaystyle \delta'(-t) = -\delta'(t) \rightarrow \Iint \dimpulse \di t = 0$.
+\end{itemize}
+
+\underlineSection[Continuous-time systems]
 
 \end{multicols*}
 
