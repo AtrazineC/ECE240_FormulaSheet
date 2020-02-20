@@ -5,6 +5,7 @@
 \usepackage{amsmath,amsthm,amsfonts,amssymb}
 \usepackage{color,graphicx,overpic}
 \usepackage[font=small,labelfont=bf]{caption}
+\usepackage{enumitem}
 
 %$$$$$$$$$$$$$ CUSTOM COMMANDS $$$$$$$$$$$$$%
 	% Format for creating new command: \newcommand{name}[num][default]{definition} 
@@ -25,12 +26,15 @@
 \newcommand{\cbracks}[1]{\left\{ #1 \right\}} % scaled curly l/r brackets 
 \newcommand{\sbracks}[1]{\left[ #1 \right]} % scaled square l/r brackets 
 
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Lint}{ \int_{-L}^{L} }
+\newcommand{\xabs}{ \abs{x(t)}^2 }
+
 \newcommand{\underlineSection}[1][unnamed]{
 \subsection*{#1}
 \hrule
 \vspace{12pt}
 }
-%$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%
 
 % Redefine section commands to use less space
 \makeatletter
@@ -47,6 +51,11 @@
                                 {1ex plus .2ex}%
                                 {\normalfont\small\bfseries}}
 \makeatother
+%$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%
+
+% Paragraph indentation
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.2cm}
 
 % Page margins
 \geometry{
@@ -85,7 +94,32 @@ By Benjamin Kong \& Lora Ma
 
 \underlineSection[Chapter 1]
 A continuous-time signal takes the form 
-\[ x(t + nT) = x(t) \quad n \in \mathbb{Z} \]
+\[ x(t + nT) = x(t) \quad n \in \Z. \]
+
+A signal $z(t) = \alpha x(t + aT_1) + \beta x(t + bT_2)$ will be periodic if
+\[ \frac{T_1}{T_2} = \frac{a}{b} \]
+for some $a, b \in \Z$.
+
+Let $x(t)$ be some signal.
+\begin{itemize}[leftmargin=0.5cm]
+\item The energy for $t \in (-L, L)$ is given by 
+\[ E_{2L} = \Lint \xabs \di t, \]
+
+\item The total energy is given by
+\[ E = \limi \Lint \xabs \di t, \]
+
+\item The average power is given by
+\[ P = \limi \dfrac{1}{2L} \Lint \xabs \di t. \]
+\end{itemize}
+
+$E$ finite $\rightarrow$ \textbf{Energy signal} $\rightarrow P = 0$.
+
+$E$ infinite and $P$ finite $\rightarrow$ \textbf{Power signal}.
+
+Periodic signal $\rightarrow$ \textbf{Power signal}.
+
+
+
 
 \end{multicols*}
 
