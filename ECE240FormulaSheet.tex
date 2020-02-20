@@ -27,21 +27,10 @@
 
 \newcommand{\underlineSection}[1][unnamed]{
 \subsection*{#1}
-\hrule height 0.25pt depth 0.25pt width \linewidth
+\hrule
 \vspace{12pt}
 }
 %$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%
-
-\pdfinfo{
-  /Title (Phys130FormulaSheet.pdf)
-  /Creator (Benjamin Kong)
-  /Producer (pdfTeX 1.40.0)
-  /Author (Benjamin Kong)
-  /Subject (Physics)
-  /Keywords (pdflatex, latex,pdftex,tex)}
-  
-
-\geometry{top=1.5cm,left=1.5cm,right=1.5cm,bottom=1.5cm}
 
 % Redefine section commands to use less space
 \makeatletter
@@ -59,14 +48,23 @@
                                 {\normalfont\small\bfseries}}
 \makeatother
 
-\renewcommand{\baselinestretch}{1.9} 
+% Page margins
+\geometry{
+top=1.5cm,
+left=1.2cm,
+right=1.2cm,
+bottom=1.5cm
+}
+
+% Line spacing
+\renewcommand{\baselinestretch}{1.2} 
 
 \begin{document} 
 
 % Title stuff
 \begin{center}
 \section*{\Huge{ECE 240 Formula Sheet}}
-\hrule height 0.25pt depth 0.25pt width \linewidth
+\hrule
 \vspace{6pt}
 By Benjamin Kong \& Lora Ma
 \end{center}
@@ -86,6 +84,8 @@ By Benjamin Kong \& Lora Ma
 \setlength{\columnsep}{0.5pt}
 
 \underlineSection[Chapter 1]
+A continuous-time signal takes the form 
+\[ x(t + nT) = x(t) \quad n \in \mathbb{Z} \]
 
 \end{multicols*}
 
