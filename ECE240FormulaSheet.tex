@@ -78,8 +78,8 @@ bottom=1.5cm
 % Title stuff
 \begin{center}
 \section*{\Huge{ECE 240 Formula Sheet}}
-\hrule
 \vspace{6pt}
+\hrule
 By Benjamin Kong \& Lora Ma
 \end{center}
 
@@ -210,6 +210,44 @@ If we have $x(t) \rightarrow y(t)$, the system is \textit{time-invariant} if
 \[ x(t-t_0) \rightarrow y(t-t_0). \]
 
 A system is $memoryless$ if the present output only depends on the present input. 
+\begin{itemize}[leftmargin=0.5cm]
+\item linear time-variant \& $y(t) = k(t)x(t) \rightarrow$ memoryless.
+\item linear time-invariant \& $y(t) = kx(t) \rightarrow$ memoryless.
+\end{itemize}
+
+A system is $causal$ if the output at any time $t_0$ only depends on the values of the input for $t \leq t_0$. Equivalently, if
+\[ x_1(t) = x_2(t) \quad t \leq t_0 \]
+implies
+\[ y_1(t) = y_2(t) \quad t \leq t_0, \]
+the system is causal.
+
+A system is $invertible$ if the input can be determined from the output alone.
+
+A system is $stable$ if some bounded input $\abs{x(t)} \leq \infty$ causes a bounded output $\abs{y(t)} \leq \infty$.
+
+For a linear time-invariant (LTI) system, the response $y(t)$ with impulse response $h(t)$ and input $x(t)$ is given by
+\[ y(t) = \Iint x(\tau) h(t-\tau) \di \tau = x(t)*h(t). \]
+Some properties of convolution are
+\begin{itemize}[leftmargin=0.5cm]
+\item $x(t)*\impulse = x(t)$,
+\item $\displaystyle x(t)*u(t) = \int_{-\infty}^t x(\tau) \di\tau$,
+\item $x(t)*\delta'(t) = x'(t)$, and
+\item $\displaystyle \Iint y(t) \di t = A_h A_x$ (the product of the areas of the two signals being convoluted).
+\end{itemize}
+
+A LTI system is memoryless if
+\[ h(t) = k\impulse. \]
+
+A LTI system is causal if
+\[ h(t) = 0 \quad t < 0. \]
+
+A LTI system described by $h(t)$ is invertible if there exists an $h_1(t)$ such that
+\[ h(t)*h_1(t) = \impulse. \]
+
+A LTI system is BIBO stable if
+\[ \Iint \abs{h(\tau)} \di\tau < \infty. \]
+
+\underlineSection[3. Fourier series]
 
 \end{multicols*}
 
