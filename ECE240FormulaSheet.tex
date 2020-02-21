@@ -39,6 +39,9 @@
 \newcommand{\eneg}{ e^{-j\frac{2\pi nt}{T}} }
 \newcommand{\fatcos}{ \cos\tpfrac{2\pi nt}{T} }
 \newcommand{\fatsin}{ \sin\tpfrac{2\pi nt}{T} }
+\newcommand{\Hint}{ \int_0^{\frac{T}{2}} }
+\newcommand{\omegaE}{ e^{jn\omega_0t} }
+\newcommand{\omegaEneg}{ e^{-jn\omega_0t} }
 
 \newcommand{\underlineSection}[1][unnamed]{
 \subsection*{#1}
@@ -277,6 +280,39 @@ Another way to represent $x(t)$ is via the \textit{amplitude-phase trigonometric
 \[ x(t) = c_0 + \sumi A_n \cos\bracks{\tfrac{2\pi nt}{T} + \phi_n}, \]
 where
 \[ A_n = 2|c_n|, \qquad \phi_n = \sphericalangle c_n. \]
+
+If $x(t)$ is \textit{even},
+\[ a_0 = \dfrac{2}{T} \Hint x(t) \di t, \]
+\[ a_n = \dfrac{4}{T} \Hint x(t) \fatcos \di t, \]
+\[ b_n = 0. \]
+
+If $x(t)$ is \textit{odd},
+\[ a_0 = a_n = 0, \]
+\[ b_n = \dfrac{4}{T} \Hint x(t) \fatsin \di t. \]
+
+For half-wave odd symmetry where $x(t + T/2) = -x(t)$, we have
+\[ a_n = \begin{cases}
+		\dfrac{4}{T} \displaystyle\Hint x(t) \fatcos \di t, n \text{ odd}, \\
+		0, n \text{ even}.
+		\end{cases} 
+\]
+\[ b_n = \begin{cases}
+		\dfrac{4}{T} \displaystyle\Hint x(t) \fatsin \di t, n \text{ odd}, \\
+		0, n \text{ even}.
+		\end{cases} 
+\]
+
+Let $x(t)$ and $y(t)$ be periodic signals with the same period such that
+\[ x(t) = \sumi[-\infty] \beta_n \omegaE, \]
+\[ y(t) = \sumi[-\infty] \gamma_n \omegaE. \]
+Then, via \textit{linearity}, $z(t) = k_1x(t) + k_2y(t)$ can be represented via
+\[ z(t) = \sumi[-\infty] \alpha \omegaE, \]
+where $\alpha = k_1\beta_n + k_2\gamma_n$. 
+
+Furthermore, the \textit{product} of the previous two signals $z(t) = x(t)y(t)$ can be represented as
+\[ z(t) = \sum_{l = -\infty}^{\infty} \alpha_l \omegaE, \]
+where
+\[ \alpha_l = \dfrac{1}{T} \Uint x(t)y(t) \omegaEneg \di t. \]
 
 \end{multicols*}
 
