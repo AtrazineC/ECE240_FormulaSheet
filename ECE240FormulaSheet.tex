@@ -34,6 +34,11 @@
 \newcommand{\dimpulse}{ \delta'(t) }
 \newcommand{\Iint}{ \int_{-\infty}^{\infty} }
 \newcommand{\tint}{ \int_{t_1}^{t_2} }
+\newcommand{\Uint}{ \int\displaylimits_{<T>} }
+\newcommand{\epos}{ e^{j\frac{2\pi nt}{T}} }
+\newcommand{\eneg}{ e^{-j\frac{2\pi nt}{T}} }
+\newcommand{\fatcos}{ \cos\tpfrac{2\pi nt}{T} }
+\newcommand{\fatsin}{ \sin\tpfrac{2\pi nt}{T} }
 
 \newcommand{\underlineSection}[1][unnamed]{
 \subsection*{#1}
@@ -223,9 +228,9 @@ the system is causal.
 
 A system is $invertible$ if the input can be determined from the output alone.
 
-A system is $stable$ if some bounded input $\abs{x(t)} \leq \infty$ causes a bounded output $\abs{y(t)} \leq \infty$.
+A system is $stable$ if some bounded input $\abs{x(t)} \leq \infty$ causes a bounded output $\abs{y(t)} \leq \infty$ for all $t$.
 
-For a linear time-invariant (LTI) system, the response $y(t)$ with impulse response $h(t)$ and input $x(t)$ is given by
+Convolution: for a linear time-invariant (LTI) system, the response $y(t)$ with impulse response $h(t)$ and input $x(t)$ is given by
 \[ y(t) = \Iint x(\tau) h(t-\tau) \di \tau = x(t)*h(t). \]
 Some properties of convolution are
 \begin{itemize}[leftmargin=0.5cm]
@@ -235,19 +240,43 @@ Some properties of convolution are
 \item $\displaystyle \Iint y(t) \di t = A_h A_x$ (the product of the areas of the two signals being convoluted).
 \end{itemize}
 
-A LTI system is memoryless if
+A LTI system is \textit{memoryless} if
 \[ h(t) = k\impulse. \]
 
-A LTI system is causal if
+A LTI system is \textit{causal} if
 \[ h(t) = 0 \quad t < 0. \]
 
-A LTI system described by $h(t)$ is invertible if there exists an $h_1(t)$ such that
+A LTI system described by $h(t)$ is \textit{invertible} if there exists an $h_1(t)$ such that
 \[ h(t)*h_1(t) = \impulse. \]
 
-A LTI system is BIBO stable if
+A LTI system is \textit{BIBO stable} if
 \[ \Iint \abs{h(\tau)} \di\tau < \infty. \]
 
 \underlineSection[3. Fourier series]
+The exponential function
+\[ \epos \quad n \in \Z \]
+can be used to represent $x(t)$ via the Fourier series expansion, given by
+\[ x(t) = \sumi[-\infty] c_n \epos, \]
+where
+\[ c_n = \dfrac{1}{T} \int_{t_0}^{t_0 + T} x(t) \eneg \di t. \]
+Note that $c_n$ can also be expressed as
+\[ c_n = |c_n|e^{j(\sphericalangle c_n)}. \]
+The plot of $|c_n|$ is called the \textit{amplitude spectrum} of $x(t)$ while the plot of $\sphericalangle c_n$ is called the \textit{phase spectrum} of $x(t)$.
+
+For real valued $x(t)$, we have
+\[ c_n^* = c_{-n}. \]
+
+The Fourier series of $x(t)$ can also be expressed via the \textit{trigonometric Fourier series} expansion, given by
+\[ x(t) = a_0 + \sumi \sbracks{ a_n \fatcos + b_n \fatsin }, \]
+where
+\[ a_0 = c_0 = \dfrac{1}{T} \Uint x(t) \di t, \]
+\[ a_n = \dfrac{2}{T} \Uint x(t) \fatcos \di t, \]
+\[ b_n = \dfrac{2}{T} \Uint x(t) \fatsin \di t. \]
+
+Another way to represent $x(t)$ is via the \textit{amplitude-phase trigonometric Fourier series} expansion, given by
+\[ x(t) = c_0 + \sumi A_n \cos\bracks{\tfrac{2\pi nt}{T} + \phi_n}, \]
+where
+\[ A_n = 2|c_n|, \qquad \phi_n = \sphericalangle c_n. \]
 
 \end{multicols*}
 
