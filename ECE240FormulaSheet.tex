@@ -312,7 +312,44 @@ where $\alpha = k_1\beta_n + k_2\gamma_n$.
 Furthermore, the \textit{product} of the previous two signals $z(t) = x(t)y(t)$ can be represented as
 \[ z(t) = \sum_{l = -\infty}^{\infty} \alpha_l \omegaE, \]
 where
-\[ \alpha_l = \dfrac{1}{T} \Uint x(t)y(t) \omegaEneg \di t. \]
+\[ \alpha_l = \dfrac{1}{T} \Uint x(t)y(t) \omegaEneg \di t \]
+\[ = \sum^{\infty}_{m = -\infty}\beta_{l-m}\gamma_m. \]
+
+Again using the previous two signals, the \textit{circular convolution} is defined as
+\[ z(t) = \dfrac{1}{T} \Uint x(\tau) y(t-\tau) \di \tau. \]
+The Fourier series coefficients for $z(t)$ are
+\[ \alpha_n = \beta_n\gamma_n. \]
+
+%Again using the previous two signals, the product of $x(t)$ and $y^*(t)$ can be %represented as
+%\[ x(t)y^*(t) = \sum_{l=-\infty}^{\infty} \alpha_l \omegaE, \]
+%where
+%\[ \alpha_l = \sum_{m=-\infty}^{\infty} \beta_{l+m} \gamma_m^*. \]
+
+Parseval's theorem states that
+\[ \dfrac{1}{T} \Uint \xabs \di t = \sumi[-\infty] \abs{\beta_n}^2. \]
+
+If $x(t)$ has Fourier series coefficients $c_n$, then the coefficients representing $x(t-\tau)$ after substituting $v = t-\tau$ are
+\[ d_n = c_n e^{-jn\omega_0\tau}. \]
+
+%For real-valued $x(t)$, we have
+%\[ \dfrac{1}{T} \Uint \xabs \di t = A_0^2 + \sumi \dfrac{A_n^2}{2}, \]
+
+The integral of a periodic signal $x(t)$ is given by
+\[ \int_{-\infty}^t x(\tau) \di\tau = \sumi[-\infty] \dfrac{c_n}{jn\omega_0} \omegaE. \]
+
+The \textit{transfer function} of an LTI system is given by
+\[ H(\omega) = \Iint h(\tau)e^{-j\omega\tau} \di\tau. \]
+
+Consequently, the response $y(t)$ of the above LTI system is
+\[ y(t) = H(\omega)e^{j\omega t}. \]
+
+An LTI system is \textit{distortionless} if
+\[ y(t) = Kx(t-t_d). \]
+
+If $x(t) = e^{j\omega t}$, then $y(t) = H(\omega)e^{j\omega t}$. Hence, the transfer function of a distortionless LTI system is
+\[ H(\omega) = Ke^{-j\omega t_d} \]
+which implies
+\[ \abs{H(\omega)} = K \quad \text{and} \quad \sphericalangle H(\omega) = -\omega t_d. \]
 
 \end{multicols*}
 
