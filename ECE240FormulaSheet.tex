@@ -34,7 +34,7 @@
 \newcommand{\dimpulse}{ \delta'(t) }
 \newcommand{\Iint}{ \int_{-\infty}^{\infty} }
 \newcommand{\tint}{ \int_{t_1}^{t_2} }
-\newcommand{\Uint}{ \int\displaylimits_{<T>} }
+\newcommand{\Uint}{ \int\displaylimits_{<\!T\!>} }
 \newcommand{\epos}{ e^{j\frac{2\pi nt}{T}} }
 \newcommand{\eneg}{ e^{-j\frac{2\pi nt}{T}} }
 \newcommand{\fatcos}{ \cos\tpfrac{2\pi nt}{T} }
@@ -247,7 +247,7 @@ A LTI system is \textit{memoryless} if
 \[ h(t) = k\impulse. \]
 
 A LTI system is \textit{causal} if
-\[ h(t) = 0 \quad t < 0. \]
+\[ h(t) = 0 \text{ for all } t < 0. \]
 
 A LTI system described by $h(t)$ is \textit{invertible} if there exists an $h_1(t)$ such that
 \[ h(t)*h_1(t) = \impulse. \]
@@ -275,6 +275,7 @@ where
 \[ a_0 = c_0 = \dfrac{1}{T} \Uint x(t) \di t, \]
 \[ a_n = \dfrac{2}{T} \Uint x(t) \fatcos \di t, \]
 \[ b_n = \dfrac{2}{T} \Uint x(t) \fatsin \di t. \]
+Recall that $< \!\!\! T \!\!\! >$ represents any interval of length $T$.
 
 Another way to represent $x(t)$ is via the \textit{amplitude-phase trigonometric Fourier series} expansion, given by
 \[ x(t) = c_0 + \sumi A_n \cos\bracks{\tfrac{2\pi nt}{T} + \phi_n}, \]
@@ -315,9 +316,9 @@ where
 \[ \alpha_l = \dfrac{1}{T} \Uint x(t)y(t) \omegaEneg \di t \]
 \[ = \sum^{\infty}_{m = -\infty}\beta_{l-m}\gamma_m. \]
 
-Again using the previous two signals, the \textit{circular convolution} is defined as
+Using the previous two signals, the \textit{circular convolution} is defined as
 \[ z(t) = \dfrac{1}{T} \Uint x(\tau) y(t-\tau) \di \tau. \]
-The Fourier series coefficients for $z(t)$ are
+The Fourier series coefficients for the circular convolution $z(t)$ are
 \[ \alpha_n = \beta_n\gamma_n. \]
 
 %Again using the previous two signals, the product of $x(t)$ and $y^*(t)$ can be %represented as
@@ -328,7 +329,7 @@ The Fourier series coefficients for $z(t)$ are
 Parseval's theorem states that
 \[ \dfrac{1}{T} \Uint \xabs \di t = \sumi[-\infty] \abs{\beta_n}^2. \]
 
-If $x(t)$ has Fourier series coefficients $c_n$, then the coefficients representing $x(t-\tau)$ after substituting $v = t-\tau$ are
+If $x(t)$ has Fourier series coefficients $c_n$, then the coefficients representing $x(t-\tau)$ are
 \[ d_n = c_n e^{-jn\omega_0\tau}. \]
 
 %For real-valued $x(t)$, we have
