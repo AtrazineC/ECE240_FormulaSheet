@@ -106,8 +106,8 @@ By Benjamin Kong \& Lora Ma
 \setlength{\columnsep}{0.5pt}
 
 \underlineSection[1. Time-domain signals]
-At a point of discontinuity $t_0$, a piecewise function takes the value
-\[x(t_0) = \frac{1}{2}\sbracks{ x\bracks{t_0^+} + x\bracks{t_0^-} }.  \]
+%At a point of discontinuity $t_0$, a piecewise function takes the value
+%\[x(t_0) = \frac{1}{2}\sbracks{ x\bracks{t_0^+} + x\bracks{t_0^-} }.  \]
 
 A continuous-time signal takes the form 
 \[ x(t + nT) = x(t) \quad n \in \Z. \]
@@ -137,20 +137,20 @@ $E$ infinite and $P$ finite $\rightarrow$ \textbf{Power signal}.
 
 Periodic signal $\rightarrow$ \textbf{Power signal}.
 
-Let $x(t)$ be some signal.
-\begin{itemize}[leftmargin=0.5cm]
-\item A \textit{time shift} is represented by
-\[ x(t-t_0). \]
-
-\item A \textit{reflection} is represented by
-\[ x(-t). \]
+%Let $x(t)$ be some signal.
+%\begin{itemize}[leftmargin=0.5cm]
+%\item A \textit{time shift} is represented by
+%\[ x(t-t_0). \]
+%
+%\item A \textit{reflection} is represented by
+%\[ x(-t). \]
 
 %\item A signal is \textit{even} if
 %\[ x(-t) = x(t) \]
 
 %\item and \textit{odd} if
 %\[ x(-t) = -x(t). \]
-\end{itemize}
+%\end{itemize}
 
 The \textit{unit step signal} is defined as
 \[ u(t) = \begin{cases} 
@@ -187,8 +187,8 @@ Some $p(t)$ can be used as a model of a delta function if
 \item $\displaystyle \lim_{\epsilon \rightarrow 0^+} p(t) = 0$ for $t \neq 0$, and
 \item $\displaystyle \Iint p(t) \di t = 1$ for all $\epsilon > 0$.
 \end{itemize}
-If these conditions are satisfied, then
-\[ \lim_{\epsilon \rightarrow 0^+} p(t) = \impulse. \]
+%If these conditions are satisfied, then
+%\[ \lim_{\epsilon \rightarrow 0^+} p(t) = \impulse. \]
 
 The \textit{sifting property} is represented as
 \[ \tint x(t)\delta(t-t_0) \di t = \begin{cases} 
@@ -237,13 +237,13 @@ A system is $invertible$ if the input can be determined from the output alone.
 A system is $stable$ if some bounded input $\abs{x(t)} \leq \infty$ causes a bounded output $\abs{y(t)} \leq \infty$ for all $t$.
 
 Convolution: for a linear time-invariant (LTI) system, the response $y(t)$ with impulse response $h(t)$ and input $x(t)$ is given by
-\[ y(t) = \Iint x(\tau) h(t-\tau) \di \tau = x(t)*h(t). \]
+\[ y(t) = x(t)*h(t) = \Iint x(\tau) h(t-\tau) \di \tau. \]
 Some properties of convolution are
 \begin{itemize}[leftmargin=0.5cm]
 \item $x(t)*\impulse = x(t)$,
 \item $\displaystyle x(t)*u(t) = \int_{-\infty}^t x(\tau) \di\tau$,
 \item $x(t)*\delta'(t) = x'(t)$, and
-\item $\displaystyle \Iint y(t) \di t = A_h A_x$ (the product of the areas of the two signals being convoluted).
+%\item $\displaystyle \Iint y(t) \di t = A_h A_x$ (the product of the areas of the two signals being convoluted).
 \end{itemize}
 
 A LTI system is \textit{memoryless} if
@@ -329,34 +329,91 @@ The Fourier series coefficients for the circular convolution $z(t)$ are
 %where
 %\[ \alpha_l = \sum_{m=-\infty}^{\infty} \beta_{l+m} \gamma_m^*. \]
 
-Parseval's theorem states that
-\[ \dfrac{1}{T} \Uint \xabs \di t = \sumi[-\infty] \abs{\beta_n}^2. \]
+%Parseval's theorem states that
+%\[ \dfrac{1}{T} \Uint \xabs \di t = \sumi[-\infty] \abs{\beta_n}^2. \]
 
 \textit{Shift property:} if $x(t)$ has Fourier series coefficients $c_n$, then the coefficients representing $x(t-\tau)$ are
 \[ d_n = c_n e^{-jn\omega_0\tau}. \]
 
-\textit{Scaling property:} if $x(t)$ has Fourier series coefficients $c_n$, then the coefficients representing $x(at)$, where $a = \frac{T_1}{T_2}$ is a scaling factor, are 
-\[ d_n = c_n e^{ -jn\omega_0 a }. \]
+%\textit{Scaling property:} if $x(t)$ has Fourier series coefficients $c_n$, then the coefficients representing $x(at)$, where $a = \frac{T_1}{T_2}$ is a scaling factor, are 
+%\[ d_n = c_n e^{ -jn\omega_0 a }. \]
 
 %For real-valued $x(t)$, we have
 %\[ \dfrac{1}{T} \Uint \xabs \di t = A_0^2 + \sumi \dfrac{A_n^2}{2}, \]
 
-The integral of a periodic signal $x(t)$ is given by
-\[ \int_{-\infty}^t x(\tau) \di\tau = \sumi[-\infty] \dfrac{c_n}{jn\omega_0} \omegaE. \]
+%The integral of a periodic signal $x(t)$ is given by
+%\[ \int_{-\infty}^t x(\tau) \di\tau = \sumi[-\infty] \dfrac{c_n}{jn\omega_0} \omegaE. \]
 
-The \textit{transfer function} of an LTI system is given by
-\[ H(\omega) = \Iint h(\tau)e^{-j\omega\tau} \di\tau. \]
+%The \textit{transfer function} of an LTI system is given by
+%\[ H(\omega) = \Iint h(\tau)e^{-j\omega\tau} \di\tau. \]
 
-Consequently, the response $y(t)$ of the above LTI system is
-\[ y(t) = H(\omega)e^{j\omega t}. \]
+%Consequently, the response $y(t)$ of the above LTI system is
+%\[ y(t) = H(\omega)e^{j\omega t}. \]
 
 An LTI system is \textit{distortionless} if
 \[ y(t) = Kx(t-t_d). \]
 
-If $x(t) = e^{j\omega t}$, then $y(t) = H(\omega)e^{j\omega t}$. Hence, the transfer function of a distortionless LTI system is
-\[ H(\omega) = Ke^{-j\omega t_d} \]
-which implies
-\[ \abs{H(\omega)} = K \quad \text{and} \quad \sphericalangle H(\omega) = -\omega t_d. \]
+%If $x(t) = e^{j\omega t}$, then $y(t) = H(\omega)e^{j\omega t}$. Hence, the transfer function of a distortionless LTI system is
+%\[ H(\omega) = Ke^{-j\omega t_d} \]
+%which implies
+%\[ \abs{H(\omega)} = K \quad \text{and} \quad \sphericalangle H(\omega) = -\omega t_d. \]
+
+\underlineSection[Examples]
+$\bullet$ \textit{Is $x(t) = -te^tu(-3t+6)$ an energy signal, power signal, or neither?}
+\begin{align*}
+	E &= \limi[L] \int_{-L}^{L}  \abs{ -te^tu\bracks{-3\sbracks{t-2}} }^2 \di t \\
+	&= \limi[L] \int_{-L}^{2} t^2e^{2t} \di t \\
+	&= \limi[L] \Eval{ \sbracks{ \bracks{ \dfrac{t^2}{2} - \dfrac{2t}{4} + \dfrac{1}{4} }e^{2t} } }{-L}{2} \\ 
+	&= \sbracks{ \bracks{2 - 1 + \dfrac{1}{4}}e^4 - 0 } \\ 
+	&= 1.25e^4
+\end{align*}
+Since $E$ is finite, $x(t)$ is an energy signal.
+
+$\bullet$ \textit{$x(t) = e^{t-1}u(-t+2)$ is applied to the input of an LTI system with impulse response $h(t) = \rect(2t)$; sketch $x(t)$, $h(t)$, and $x(\tau)h(t-\tau)$, then determine $y(t) = x(t)*h(t)$.}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth]{q2d}
+\end{center}
+
+For $-\infty < t \leq 1.75$:
+\begin{align*}
+	y(t) &= \int_{t-0.25}^{t+0.25} e^{\tau-1}\di\tau \\
+	&= \Eval{e^{\tau-1}}{t-0.25}{t+0.25} \\
+	&\approx 0.186e^t.
+\end{align*}
+
+For $1.75 < t \leq 2.25$:
+\begin{align*}
+	y(t) &= \int_{t-0.25}^{2} e^{\tau - 1}\di\tau \\
+	&= \Eval{e^{\tau-1}}{t-0.25}{2} \\
+	&= e-e^{t-1.25}.
+\end{align*}
+
+For $t > 2.25$, $y(t) = 0$.
+
+$\bullet$ \textit{Given $x(t)$ below, find any symmetry exhibited and find the trigonometric Fourier series coefficients of $x(t)$.}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{q3a}
+\end{center}
+
+$x(t)$ exhibits even symmetry and half-wave odd symmetry. This means that $b_n = 0$ for all $n$ and $a_n = 0$ for even $n$ (and hence, $a_0 = 0$). Due to even symmetry, we have
+\[ a_n = \dfrac{4}{T} \int_{0}^{T/2} x(t)\cos\pfrac{2\pi nt}{T} \di t. \]
+Note that $x(t)$ can be written as
+\[ x(t) = t - 1 \quad \text{for $0 \leq t \leq 2$.} \]
+So, since the period of $x(t)$ is $T = 4$,
+\begin{align*} 
+	a_n &= \dfrac{4}{4} \int_0^2 (t-1)\cos\pfrac{\pi n t}{2} \di t \\
+	&= \int_0^2 t\cos\pfrac{\pi n t}{2}\di t - \int_0^2 \cos\pfrac{\pi n t}{2}\di t \\
+	&= \dfrac{2}{n\pi} \int_0^2 \dfrac{\pi n t}{2}\cos\pfrac{\pi n t}{2}\di t - \Eval{\dfrac{\sin\pfrac{\pi n t}{2}}{\frac{\pi n}{2}}}{0}{2} \\
+	& \rightarrow \text{let } x = \frac{\pi nt}{2} \\
+	&= \pfrac{2}{n\pi}^2\int_{0}^{n\pi}x\cos x \di x - \underbrace{\bracks{ \dfrac{\sin(n\pi)}{\frac{n\pi}{2}} - 0 }}_{=0} \\
+	&= \pfrac{2}{n\pi}^2 \Eval{\bracks{ \cos x + x\sin x }}{0}{n\pi} \\
+	&= \pfrac{2}{n\pi}^2 \bracks{\cos(n\pi) - 1} \\
+	&= \begin{cases}
+		-2\pfrac{2}{n\pi}^2, n \text{ odd}, \\
+		0, n \text{ even}.
+	\end{cases}
+\end{align*}
 
 \end{multicols*}
 
